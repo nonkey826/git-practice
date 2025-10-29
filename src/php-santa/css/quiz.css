@@ -1,0 +1,214 @@
+/* 🌿🐶 さんちゃんクイズ かわいいライムグリーンver. */
+
+body {
+    font-family: "Noto Sans JP", sans-serif;
+    background: linear-gradient(180deg, #fafffa 0%, #f3fff5 100%);
+    color: #3c3c3c;
+    text-align: center;
+    padding: 40px;
+}
+
+/* タイトル */
+h1 {
+    color: #73c88a;
+    font-size: 2.4em;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 0 #ffffff;
+}
+
+/* サブタイトルや説明 */
+p {
+    font-size: 1.05em;
+    line-height: 1.6;
+    color: #4a4a4a;
+}
+
+/* 🐾 クイズカード部分 */
+.quiz__content {
+    background: #ffffff;
+    border-radius: 25px;
+    padding: 35px;
+    max-width: 650px;
+    margin: 35px auto;
+    box-shadow: 0 8px 18px rgba(144, 238, 144, 0.25);
+    text-align: left;
+    border: 3px solid #d6f5d6;
+}
+
+/* 問題テキスト */
+.quiz__content p strong {
+    color: #6ec86e;
+    font-size: 1.2em;
+}
+
+/* ラジオボタン */
+label {
+    display: block;
+    margin-bottom: 10px;
+    background: #fafffa;
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 1px solid #d9f3d9;
+    transition: all 0.25s ease;
+    font-size: 1em;
+}
+
+label:hover {
+    background-color: #e9ffe9;
+    border-color: #9fe6a3;
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+/* 🟢 回答ボタン */
+.quiz-form__button {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.quiz-form__button-submit {
+    background: linear-gradient(135deg, #98ecb1 0%, #6fdba1 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 35px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(111, 219, 161, 0.4);
+}
+
+.quiz-form__button-submit:hover {
+    background: linear-gradient(135deg, #7ee29a 0%, #52cf86 100%);
+    transform: translateY(-2px);
+}
+
+/* 🐾 結果画面 */
+.result-box {
+    background: #ffffff;
+    padding: 45px;
+    border-radius: 25px;
+    max-width: 650px;
+    margin: 50px auto;
+    box-shadow: 0 6px 16px rgba(143, 235, 173, 0.3);
+    border: 3px solid #d6f5d6;
+    position: relative;
+}
+
+/* 点数部分 */
+.score {
+    font-size: 30px;
+    font-weight: bold;
+    color: #56c676;
+    margin-bottom: 10px;
+}
+
+/* メッセージ */
+.result-box p {
+    font-size: 1.1em;
+    color: #4a4a4a;
+}
+
+/* 間違えたリスト */
+.wrong-list {
+    text-align: left;
+    background: #f8fff8;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 30px;
+    border: 1px solid #d9f3d9;
+}
+
+.wrong-list h3 {
+    color: #64c67a;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.wrong-list li {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    border-bottom: 1px dashed #d0efce;
+    padding-bottom: 8px;
+}
+
+/* 🩵 再挑戦ボタン */
+button {
+    background: linear-gradient(135deg, #a2f1b6 0%, #7ee29a 100%);
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    padding: 12px 35px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 25px;
+    box-shadow: 0 3px 8px rgba(0, 128, 0, 0.25);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #88e69b 0%, #52cf86 100%);
+    transform: scale(1.05);
+}
+
+/* --------------------
+  さんちゃんふわっとアニメーション
+-------------------- */
+img {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.8s ease;
+}
+
+img.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.confetti {
+    position: fixed;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    background-color: pink;
+    transform: rotate(45deg);
+    pointer-events: none;
+    z-index: 9999;
+    animation: fall 5s linear forwards;
+}
+
+/* ハートの形（擬似要素で丸を2つ追加） */
+.confetti::before,
+.confetti::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: inherit;
+    border-radius: 50%;
+}
+
+.confetti::before {
+    top: -6px;
+    left: 0;
+}
+
+.confetti::after {
+    left: 6px;
+    top: 0;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(405deg);
+        opacity: 0;
+    }
+}
